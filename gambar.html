@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image-container {
+            margin-bottom: 20px;
+        }
+
+        .image-container img {
+            max-width: 300px;
+            height: 280px;
+            display: none;
+            border: 5px solid transparent;
+        }
+
+        .image-container img.active {
+            display: block;
+        }
+
+        .circle {
+            border-radius: 100%;
+        }
+
+        .triangle {
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        }
+
+        .square {
+            border-radius: 0;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img id="image1" src="/style/images1.jpeg" alt="image 1" class="active square">
+        <img id="image2" src="/style/image2.jpg" alt="image 2" class="square">
+        <img id="image3" src="/style/images3.jpg" alt="image 3" class="square">
+    </div>
+    <div class="controls">
+        <label for="imageSelector">Pilih Foto:</label>
+        <select id="imageSelector">
+            <option value="image1">Image 1</option>
+            <option value="image2">Image 2</option>
+            <option value="image3">Image 3</option>
+        </select>
+    
+        <label for="shapeSelector">Pilih Bentuk:</label>
+        <select id="shapeSelector">
+            <option value="square">Kotak</option>
+            <option value="triangle">Segitiga</option>
+            <option value="circle">Lingkaran</option>
+        </select>
+    
+        <label for="borderColorSelector">Pilih Warna Border:</label>
+        <select id="borderColorSelector">
+            <option value="transparent">None</option>
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
+    
+    <script> 
+        
+        document.getElementById('imageSelector').addEventListener('change', function() {
+            var selectedValue = this.value;
+            var images = document.querySelectorAll(".image-container img");
+    
+            images.forEach(function(image) {
+                if (image.id === selectedValue) {
+                    image.classList.add('active');
+                } else {
+                    image.classList.remove('active');
+                }
+            });
+        });
+    
+        // Event listener untuk mengganti bentuk
+        document.getElementById('shapeSelector').addEventListener('change', function() {
+            var selectedShape = this.value;
+            var activeImage = document.querySelector(".image-container img.active");
+    
+            activeImage.classList.remove("square", "triangle", "circle");
+            activeImage.classList.add(selectedShape)
+        });
+    
+        // Event listener untuk mengganti warna border
+        document.getElementById('borderColorSelector').addEventListener('change', function() {
+            var activeImage = document.querySelector(".image-container img.active");
+            activeImage.style.border = "5px solid " + this.value;
+        });
+    </script>
+
+</body>
+</html>

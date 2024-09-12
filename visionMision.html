@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            /* width: 80%; */
+            margin: 0 auto;
+            background-color: black;
+            color: #fff;
+            height: 100vh;
+        }
+
+        .vision-mission {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .vision, .mission {
+            width: 39%;
+            padding: 10px;
+            margin: 20px;
+        }
+
+        h1 {
+            padding: 10px;
+            margin: 20px;
+        }
+        
+        h2 {
+            color: red;
+        }
+
+        .vision h2, .mission h2 {
+            margin-bottom: 10px;
+        }
+
+        .activities {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .activity-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 30px;
+            text-align: left;
+            margin: 0 0 50px 50px;
+
+
+        }
+
+        .activity {
+            width: 45%;
+            padding: 10px;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="vision-mission">
+            <div class="vision">
+                <h2>01. Visi <br>______________________</h2>
+                <p>Mendukung Kemajuan Guru Pemasaran sebagai organisasi<br> yang dapat mewujudkan Profesionalisme Guru, Siswa/i <br> SMK dalam bidang Marketing.</p>
+            </div>
+            <div class="mission">
+                <h2>02. Misi <br>______________________</h2>
+                <p>Memfasilitasi Guru dan Siswa melalui berbagai aktifitas yang<br> dilakukan bekerjasama dengan pemerintah dan DUDI agar<br> menjadi tenaga pemasar yang Smart, Innovative, Professional.</p>
+            </div>
+        </div>
+
+        <div class="activities">
+            <h1>Agmari Activities</h1>
+            <div class="activity-list">
+                <div class="activity">WORKSHOP CANON</div>
+                <div class="activity">LSPR</div>
+                <div class="activity">CEO MENGAJAR</div>
+                <div class="activity">SINKRONISASI KURIKULUM</div>
+                <div class="activity">GURU MAGANG</div>
+                <div class="activity">REKRUITMEN</div>
+                <div class="activity">KUNJUNGAN INDUSTRI</div>
+                <div class="activity">KELAS INDUSTRI</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

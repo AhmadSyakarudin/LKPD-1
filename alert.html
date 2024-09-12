@@ -1,0 +1,71 @@
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown Timer 10 Detik</title>
+    <style>
+        #timer {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #alertBox {
+            display: none;
+            padding: 10px;
+            margin-top: 20px;
+            color: white;
+            background-color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Countdown Timer 10 Detik</h1>
+    <p id="timer">10 detik</p>
+    <button id="startButton">Mulai Timer</button>
+    <button id="stopButton">Hentikan Timer</button>
+    <div id="alertBox">Waktu sudah habis!</div>
+
+    <script>
+        let timerInterval;
+
+        function startTimer() {
+            let timeLeft = 10;
+            const timerElement = document.getElementById("timer");
+            const alertBox = document.getElementById("alertBox");
+
+            timerElement.style.color = "black";
+            alertBox.style.display = "none";
+            timerElement.innerHTML = timeLeft + " detik";
+
+            timerInterval = setInterval(function () {
+                timeLeft--;
+                timerElement.innerHTML = timeLeft + " detik";
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    timerElement.innerHTML = "Waktu Habis!";
+                    timerElement.style.color = "red";
+                    alertBox.style.display = "block";
+                }
+            }, 1000);
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+        }
+
+        const startButton = document.getElementById("startButton");
+        const stopButton = document.getElementById("stopButton");
+
+        startButton.addEventListener("click",
+            startTimer);
+        stopButton.addEventListener("click", stopTimer);
+
+    </script>
+</body>
+
+</html>
